@@ -67,20 +67,12 @@ app.put("/listings/:id", async (req, res) => {
   res.redirect(`/listings/${id}`);
 });
 
-// app.get("/testListings", async(req, res) => {
-//     let sampleListing = new Listing({
-//         title : "My New Villa",
-//         description : "By the Beach",
-//         image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTaPgON7MfinJtGYnJxT-1LDC5PgQpEZmoRw&s",
-//         price : 1200,
-//         location : "Goa",
-//         country : "India",
-//     });
-
-//     await sampleListing.save();
-//     console.log("Sample Was Saved");
-//     res.send("Successful Testing");
-// })
+//Delete Route
+app.delete("/listings/:id", async (req, res) => {
+  let { id } = req.params;
+  await Listing.findByIdAndDelete(id, { ...req.body.listing });
+  res.redirect("/listings");
+});
 
 app.listen(8080, () => {
   console.log("Server is started on http://localhost:8080/");
