@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #ffffff;
+  height: 5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 2px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+}
+.navlink {
+  color: #333333;
+  text-decoration: none;
+  padding: 14px 20px;
+}
+
+.navlink:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.navlink:active {
+  font-weight: bold;
+}
+
+h2 {
+  color: #fe424d;
+  font-size: 2rem;
+}
