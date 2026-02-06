@@ -1,11 +1,40 @@
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-left: 2rem;
-  margin-top: 1rem;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card {
+  border: none;
+  width: 15rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card:hover img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.card img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 1rem;
 }
 
 .list-title {
-  color: #333333;
-  text-decoration: none;
+  color: #000;
+}
+
+.list-price {
+  color: #555;
+  font-size: 0.9rem;
 }

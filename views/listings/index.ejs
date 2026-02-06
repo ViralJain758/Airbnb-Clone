@@ -1,9 +1,16 @@
 <% layout("/layouts/boilerplate.ejs") %>
 <body>
-    <h3>All Listings</h3>
-    <ul>
-        <% for(let list of listings){ %>
-            <li><a href="/listings/<%= list._id %>" class="list-title"><%= list.title %></a></li>
-        <% }  %> 
-    </ul>
+
+<div class="cards">
+<% for(let list of listings){ %>
+    <a href="/listings/<%= list._id %>" class="card-link">
+    <div class="card">
+    <img src="<%= list.image.url %>" alt="Image of <%= list.title %>">
+    <b><p class="list-title"><%= list.title %></p></b>
+    <p class="list-price">₹ <%= list.price.toLocaleString("en-IN") %> / night</p>
+    </div>
+    </a>
+<% }  %> 
+</div>
+
 </body>
