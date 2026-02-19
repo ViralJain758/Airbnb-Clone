@@ -35,6 +35,63 @@
           <button class="btn delete-btn">Delete this Listing</button>
         </form>
       </div>
+      <br />
+      <hr />
+      <br />
+      <div class="listing-card">
+        <h4>Leave a Review</h4>
+        <form
+          class="review-form"
+          action="/listings/<%= listing._id %>/reviews"
+          method="POST"
+        >
+          <div class="review-inputs">
+            <label for="rating" class="form-label">Rating</label>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              id="rating"
+              name="review[rating]"
+              class="form-control"
+            />
+          </div>
+          <div class="review-inputs">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea
+              id="comment"
+              name="review[comment]"
+              cols="30"
+              rows="10"
+              class="form-control"
+              required
+            ></textarea>
+          </div>
+          <button class="submit-btn btn">Submit</button>
+        </form>
+        <br />
+        <hr />
+        <br />
+        <section class="reviews-section">
+          <h4 class="reviews-heading">All Reviews</h4>
+
+          <% if (listing.reviews.length === 0) { %>
+            <p class="empty-reviews">No reviews yet.</p>
+          <% } %>
+
+          <% for (let review of listing.reviews) { %>
+            <article class="review-card">
+              <div class="review-topline">
+                <p class="review-rating">Rating: <strong><%= review.rating %>/5</strong></p>
+                <p class="review-time">
+                  <%= new Date(review.created_at).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) %>
+                </p>
+              </div>
+              <p class="review-comment"><%= review.comment %></p>
+            </article>
+          <% } %>
+        </section>
+      </div>
     </div>
   </div>
 </body>
